@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Gallery</title>
+    <link rel="stylesheet" href={% static "img.css" %}>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <a href="{% url 'main_view' %}"><div class="gallery-section"><p align="center" style="font-family: 'Brush Script MT', cursive;color:white; font-size: 40px; font-style: italic; font-variant: normal;">Upload</p></div></a>
+      <br><br><br><hr>
+      <div class="gallery-section">
+      <div class="inner-width">
+            <h1>My Gallery</h1>
+            <div class="border"></div>
+        <div class="wrapper photoalign">
+        {% for image in images %}
+        <div class="zoom-within-container container blue-div">
+          <a href="../media/compressed/{{image}}" class="image">
+          <img  src="../media/compressed/{{image}}" ></a>
+          <button><a id="normal" download="{{image}}" href="../media/images/{{image}}" title="Server_Image" class="red-btn">Download</a></button>
+          </div>
+            {% comment %} <form method="post" action="{% url 'to_delete' {{image}}.pk %}">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+            </form> {% endcomment %}
+              {% endfor %} 
+          </div>
+      </div>
+    </div>
+  <script>
+    $(".gallery").magnificPopup({
+      delegate: 'a',
+      type: 'image',
+      gallery:{
+        enabled: true
+      }
+    });
+  </script>
+  </body>
+</html>

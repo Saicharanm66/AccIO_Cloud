@@ -1,0 +1,1 @@
+$('#link').attr('href', 'http://www.google.com');

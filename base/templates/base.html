@@ -1,0 +1,23 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- custom css & js -->
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="{% static 'main.js' %}" defer></script>
+    <!-- dropzone js & css -->
+    <script src="{% static 'dropzone.js' %}" defer></script>
+    <link rel="stylesheet" href="{% static 'dropzone.css' %}">
+    <title>Gallery | {% block title %}{% endblock title %}</title>
+    <link rel="stylesheet" href={% static "img.css" %}>
+  </head>
+  <body>
+    <div class="container mt-3">
+        {% block content %}
+        {% endblock content %}
+    </div>
+  </body>
+</html>

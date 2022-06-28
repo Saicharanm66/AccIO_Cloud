@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static%}
+
+{% block content%}
+<br>  <br>
+<a href="{% url 'upload_pic' %}">
+  <div class="gallery-section"><p align="center" style="font-family: 'Brush Script MT', cursive;color:white; font-size: 40px; font-style: italic; font-variant: normal;">Gallery</p></div>
+	</a>  <br>  <br>
+  <hr>
+  <br>
+<form action="gallery/" method="POST" class="gallery-section dropzone dz" id=" dropper ">
+    {% csrf_token %}
+    <div class="fallback">
+      <input name="file" type="file" multiple />
+    </div>
+  </form>
+</div>
+{% endblock content %}
+<!-- HTML !-->
+<button class="button-86" role="button">Button 86</button>
